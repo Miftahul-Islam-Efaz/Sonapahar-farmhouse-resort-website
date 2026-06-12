@@ -1,0 +1,15 @@
+# Windows thumbnail caches
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+
+# Editor/IDE specific files
+.vscode/
+.idea/
+*.swp
+*.swo

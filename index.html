@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>Sonapahar Farmhouse Resort | Immersive Nature-Inspired Luxury, Mirsharai</title>
+  <meta name="description" content="Experience Bangladesh's first Miyawaki Forest at Sonapahar Farmhouse Resort in Mirsharai, Chattogram. Luxury eco-conscious accommodation, natural swimming pool, organic farm, and scenic lakes.">
+  <meta name="keywords" content="Sonapahar Farmhouse, Sonapahar Resort, Mirsharai Farmhouse, Miyawaki Forest Bangladesh, Luxury Eco Resort Chattogram, Akash House, Kusum House, Madhavilata">
+  <meta name="author" content="Sonapahar Farmhouse Resort">
+  
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sonapahar Farmhouse Resort">
+  <meta property="og:title" content="Sonapahar Farmhouse Resort | Immersive Nature-Inspired Luxury, Mirsharai">
+  <meta property="og:description" content="Experience Bangladesh's first Miyawaki Forest at Sonapahar Farmhouse Resort. Luxury eco-conscious accommodation, natural swimming pool, organic dining, and scenic lakes.">
+  <meta property="og:image" content="https://sonapahar.netlify.app/assets/images/og-thumbnail.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sonapahar Farmhouse Resort | Immersive Nature-Inspired Luxury">
+  <meta name="twitter:description" content="Experience Bangladesh's first Miyawaki Forest at Sonapahar Farmhouse Resort in Mirsharai. Eco-luxury stays, organic dining, and serene nature.">
+  <meta name="twitter:image" content="https://sonapahar.netlify.app/assets/images/og-thumbnail.jpg">
+  
+  <!-- Favicon Link -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="shortcut icon" href="assets/images/favicon.png">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css?v=2.97">
+  
+  <!-- Icons (FontAwesome for UI decorations) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Preloader Screen -->
+  <div class="modal-overlay" id="bookingModal">
+    <div class="modal-content">
+      <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      
+      <!-- Loading State -->
+      <div class="booking-loader" id="bookingLoader">
+        <div class="spinner"></div>
+        <h3 class="font-serif">Verifying Reservation</h3>
+        <p>Securing your luxury stay at Sonapahar Farmhouse...</p>
+      </div>
+      
+      <!-- Success State -->
+      <div class="booking-success" id="bookingSuccess">
+        <div class="checkmark-circle">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="font-serif" style="color: var(--color-gold); font-size: 2.2rem;">Booking Requested</h3>
+        <p>Thank you for choosing Sonapahar Farmhouse.</p>
+        <p style="font-size: 0.85rem; color: var(--color-text-muted); margin-top: 1rem;">
+          Our reservations concierge will contact you within 2 hours at the phone number provided to finalize your stay.
+        </p>
+        <button class="btn btn-gold" id="modalOkBtn" style="margin-top: 2rem; min-width: 150px;">Understood</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Header & Sticky Navigation -->
+  <header id="mainHeader">
+    <nav class="navbar glass3d" aria-label="Main Navigation">
+      <div class="nav-brand">
+        <a href="#heroSection" class="brand-title">SONAPAHAR</a>
+      </div>
+      
+      <button class="menu-toggle" id="menuToggleBtn" aria-label="Toggle mobile menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#storySection" class="nav-link">Sanctuary</a></li>
+        <li><a href="#villasSection" class="nav-link">Villas</a></li>
+        <li><a href="#experienceSection" class="nav-link">Experiences</a></li>
+        <li><a href="#locationSection" class="nav-link">Location</a></li>
+        <li><a href="#bookingSection" class="nav-link">Reserve</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="heroSection" style="background: url('assets/images/villa-exterior-akash.jpeg') center/cover no-repeat fixed;">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-frame" id="heroFrame" style="background: url('assets/images/villa-exterior-akash.jpeg') center/cover no-repeat fixed;">
+      <div class="hero-title-area">
+        <div class="hero-tags">RESORT &bull; FARMHOUSE &bull; MIYAWAKI FOREST &bull; ORGANIC DINING</div>
+        <h1 class="hero-main-title">
+          SONAPAHAR<br>
+          <span class="title-second-line">RESORT <span class="title-since">SINCE 2024</span></span>
+        </h1>
+      </div>
+
+      <!-- Preview card — mini-carousel -->
+      <div class="hero-preview-area" id="heroPreview">
+        <div class="preview-header">
+          <span class="preview-next">PREVIEW</span>
+          <div class="preview-arrows">
+            <i class="fa-solid fa-caret-left" id="prevSlide" role="button" aria-label="Previous slide"></i>
+            <i class="fa-solid fa-caret-right" id="nextSlide" role="button" aria-label="Next slide"></i>
+          </div>
+        </div>
+        <div class="preview-image-wrapper" id="previewImageWrapper">
+          <div class="preview-slides-inner" id="previewSlidesInner">
+            <div class="preview-slide" style="background-image: url('assets/images/villa-exterior-akash.jpeg')"></div>
+            <div class="preview-slide" style="background-image: url('assets/images/villa-exterior-madhavilata.jpeg')"></div>
+            <div class="preview-slide" style="background-image: url('assets/images/lake-deck-sunset.jpg')"></div>
+            <div class="preview-slide" style="background-image: url('assets/images/garden-pool.jpg')"></div>
+            <div class="preview-slide" style="background-image: url('assets/images/hero-our-story-refined.png')"></div>
+          </div>
+          <div class="preview-title" id="previewLabel">AKASH HOUSE</div>
+        </div>
+        <div class="preview-progress">
+          <div class="progress-bar" id="heroProgressBar"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <main>
+    
+    <!-- Our Story Section -->
+    <!-- Sanctuary Section -->
+    <section class="section sanctuary-section" id="storySection">
+      <div class="container sanctuary-container">
+        
+        <div class="sanctuary-content">
+          <div class="sanctuary-logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L2 12H5V20H19V12H22L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>SANCTUARY</span>
+          </div>
+          
+          <h2 class="sanctuary-title js-split-text">
+            Here you are permitted to simply be.<br>
+            Gaze upon the lush forest, listen to the deep silence,<br>
+            hold a cup of warm tea in your hands—<br>
+            and never have to rush anywhere.<br>
+            Height is not only about elevation,<br>
+            It is about finding your true state of mind.
+          </h2>
+          
+          <div class="sanctuary-buttons">
+            <a href="#villasSection" class="btn-sanctuary btn-outline">EXPLORE VILLAS</a>
+            <a href="#experienceSection" class="btn-sanctuary btn-solid">DISCOVER EXPERIENCES</a>
+          </div>
+        </div>
+
+        <div class="sanctuary-media-wrapper">
+          <div class="sanctuary-media-card">
+            <div class="sanctuary-image-track" id="sanctuaryImageTrack">
+              <div class="sanctuary-slide">
+                <img src="assets/images/villa-exterior-akash.jpeg" alt="Akash House">
+              </div>
+              <div class="sanctuary-slide">
+                <img src="assets/images/villa-exterior-madhavilata.jpeg" alt="Madhavilata">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="sanctuary-toggle-wrapper">
+        <div class="sanctuary-toggle">
+          <button class="toggle-btn active">AKASH HOUSE</button>
+          <button class="toggle-btn">MADHAVILATA</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Villas & Houses Section -->
+    <section class="section villas-container" id="villasSection">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">The Residences</span>
+          <h2 class="section-title">Immersive Living Spaces</h2>
+          <div class="section-divider"></div>
+        </div>
+        
+        <!-- Tab Selectors -->
+        <ul class="villas-tabs reveal" role="tablist">
+          <li>
+            <button class="villas-tab-btn active" id="tab-akash" role="tab" aria-selected="true" aria-controls="panel-akash">
+              Akash House
+            </button>
+          </li>
+          <li>
+            <button class="villas-tab-btn" id="tab-kusum" role="tab" aria-selected="false" aria-controls="panel-kusum">
+              Kusum House
+            </button>
+          </li>
+          <li>
+            <button class="villas-tab-btn" id="tab-madhavilata" role="tab" aria-selected="false" aria-controls="panel-madhavilata">
+              Madhavilata Suite
+            </button>
+          </li>
+        </ul>
+        
+        <!-- Panels Wrapper -->
+        <div class="villas-content-wrapper">
+          
+          <!-- Panel 1: Akash -->
+          <div class="villa-panel wabi-sabi-panel active" id="panel-akash" role="tabpanel" aria-labelledby="tab-akash">
+            <!-- Left Side: Large vertical image with overlay text -->
+            <div class="ws-left">
+              <div class="ws-image-container">
+                <img src="assets/images/villa-exterior-akash.jpeg" alt="Akash House">
+                <h3 class="ws-image-title">Akash House</h3>
+              </div>
+            </div>
+            
+            <!-- Right Side: Minimalist composition -->
+            <div class="ws-right">
+              <!-- Top Quote -->
+              <div class="ws-quote-block">
+                <p class="ws-quote">"Designed for stargazing and ultimate seclusion."</p>
+              </div>
+              
+              <!-- Middle Blocks -->
+              <div class="ws-middle-row">
+                <div class="ws-icon-box">
+                  <i class="fa-solid fa-leaf"></i>
+                </div>
+                <div class="ws-info-box">
+                  <div class="ws-circle-number">01</div>
+                  <p class="ws-info-text">Akash House — highest elevation, featuring floor-to-ceiling glass paneling and a private elevated wooden deck.</p>
+                </div>
+              </div>
+              
+              <!-- Bottom Showcase/Action block -->
+              <a href="#bookingSection" class="ws-action-block book-trigger" data-villa="Akash House">
+                <div class="ws-action-content">
+                  <h4>Reserve Akash</h4>
+                  <p>৳ 12,500 / Night</p>
+                </div>
+                <div class="ws-action-arrow">
+                  <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Panel 2: Kusum -->
+          <div class="villa-panel wabi-sabi-panel" id="panel-kusum" role="tabpanel" aria-labelledby="tab-kusum">
+            <div class="ws-left">
+              <div class="ws-image-container">
+                <img src="assets/images/lake-deck-sunset.jpg" alt="Kusum House">
+                <h3 class="ws-image-title">Kusum House</h3>
+              </div>
+            </div>
+            
+            <div class="ws-right">
+              <div class="ws-quote-block">
+                <p class="ws-quote">"Positioned directly along the edge of the natural lake."</p>
+              </div>
+              
+              <div class="ws-middle-row">
+                <div class="ws-icon-box">
+                  <i class="fa-solid fa-water"></i>
+                </div>
+                <div class="ws-info-box">
+                  <div class="ws-circle-number">02</div>
+                  <p class="ws-info-text">Kusum House — listen to the gentle waves and wake up to the floating lotus gardens in complete serenity.</p>
+                </div>
+              </div>
+              
+              <a href="#bookingSection" class="ws-action-block book-trigger" data-villa="Kusum House">
+                <div class="ws-action-content">
+                  <h4>Reserve Kusum</h4>
+                  <p>৳ 14,000 / Night</p>
+                </div>
+                <div class="ws-action-arrow">
+                  <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Panel 3: Madhavilata -->
+          <div class="villa-panel wabi-sabi-panel" id="panel-madhavilata" role="tabpanel" aria-labelledby="tab-madhavilata">
+            <div class="ws-left">
+              <div class="ws-image-container">
+                <img src="assets/images/villa-exterior-madhavilata.jpeg" alt="Madhavilata Suite">
+                <h3 class="ws-image-title">Madhavilata</h3>
+              </div>
+            </div>
+            
+            <div class="ws-right">
+              <div class="ws-quote-block">
+                <p class="ws-quote">"A grand two-story eco-cottage designed for families."</p>
+              </div>
+              
+              <div class="ws-middle-row">
+                <div class="ws-icon-box">
+                  <i class="fa-solid fa-house-chimney-window"></i>
+                </div>
+                <div class="ws-info-box">
+                  <div class="ws-circle-number">03</div>
+                  <p class="ws-info-text">Madhavilata Suite — features premium wooden architecture, dual lounge areas, and broad scenic windows.</p>
+                </div>
+              </div>
+              
+              <a href="#bookingSection" class="ws-action-block book-trigger" data-villa="Madhavilata Suite">
+                <div class="ws-action-content">
+                  <h4>Reserve Suite</h4>
+                  <p>৳ 18,500 / Night</p>
+                </div>
+                <div class="ws-action-arrow">
+                  <i class="fa-solid fa-arrow-right-long"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Bento Grid Gallery Section -->
+        <!-- Immersive Gallery Ribbon Section -->
+    <section class="gallery-ribbon-section section" id="experienceSection">
+      <div class="banya-header reveal">
+        <div class="banya-title-container">
+          <div class="banya-top-desc">
+            <p>Immersive nature-inspired luxury designed to reconnect you with the wilderness and sustainable ecology.</p>
+          </div>
+          <h2 class="banya-title">
+            <span class="bt-line1">Sanctuary. Nature.</span><br>
+            <span class="bt-line2">Experience.</span>
+          </h2>
+          <div class="banya-bottom-meta">
+            <div class="bbm-left">
+              <p>THE SANCTUARY LIFE</p>
+              <p>SONAPAHAR RESORT</p>
+            </div>
+            <div class="bbm-right">
+              <p>EST. 2024</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-ribbon-container">
+        <!-- Label -->
+        <div class="gallery-ribbon-label">SONAPAHAR EDITORIAL</div>
+
+        <!-- Band 1 -->
+        <div class="gallery-band band-1">
+          <div class="band-track" id="band1-track">
+            <!-- Repeated 3 times -->
+            <div class="band-item"><img src="assets/images/garden-pool.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/lake-deck-sunset.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/poolside-relaxation.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-akash.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/welcome-lobby.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-interior.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-pool.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/lake-deck-sunset.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/poolside-relaxation.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-akash.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/welcome-lobby.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-interior.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-pool.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/lake-deck-sunset.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/poolside-relaxation.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-akash.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/welcome-lobby.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-interior.png" alt="Gallery"></div>
+          </div>
+        </div>
+
+        <!-- Band 2 (Tall) -->
+        <div class="gallery-band band-2">
+          <div class="band-track tall" id="band2-track">
+            <!-- Repeated 3 times -->
+            <div class="band-item"><img src="assets/images/villa-exterior-madhavilata.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/hero-our-story.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/hero-our-story-refined.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-path.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-dining.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-organic.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-madhavilata.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/hero-our-story.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/hero-our-story-refined.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-path.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-dining.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-organic.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-madhavilata.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/hero-our-story.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/hero-our-story-refined.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-path.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-dining.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-organic.png" alt="Gallery"></div>
+          </div>
+        </div>
+
+        <!-- Band 3 -->
+        <div class="gallery-band band-3">
+          <div class="band-track" id="band3-track">
+            <!-- Repeated 3 times -->
+            <div class="band-item"><img src="assets/images/lake-deck-sunset.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-pool.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-interior.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/welcome-lobby.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-akash.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-organic.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/lake-deck-sunset.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-pool.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-interior.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/welcome-lobby.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-akash.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-organic.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/lake-deck-sunset.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/garden-pool.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-interior.png" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/welcome-lobby.jpg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/villa-exterior-akash.jpeg" alt="Gallery"></div>
+            <div class="band-item"><img src="assets/images/bento-organic.png" alt="Gallery"></div>
+          </div>
+        </div>
+        
+        <!-- Edge Fades -->
+        <div class="edge-fade fade-left"></div>
+        <div class="edge-fade fade-right"></div>
+      </div>
+    </section>
+
+
+    <!-- Interactive Advanced Booking Section -->
+    <section class="section booking-section" id="bookingSection">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Reservation</span>
+          <h2 class="section-title">Reserve Your Sanctuary</h2>
+          <div class="section-divider"></div>
+        </div>
+        
+        <div class="booking-layout reveal">
+          
+          <!-- Interactive Booking Form -->
+          <div class="booking-form-card">
+            <h3 class="form-title">Booking Details</h3>
+            
+            <form id="resortBookingForm">
+              <div class="form-grid">
+                
+                <div class="form-group">
+                  <label for="checkInDate">Check-in Date</label>
+                  <div class="form-input-wrapper">
+                    <input type="date" id="checkInDate" class="form-control" required>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="checkOutDate">Check-out Date</label>
+                  <div class="form-input-wrapper">
+                    <input type="date" id="checkOutDate" class="form-control" required>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="villaSelect">Select Villa</label>
+                  <select id="villaSelect" class="form-control sr-only" required>
+                    <option value="akash" data-price="12500">Akash House — ৳ 12,500 / Night</option>
+                    <option value="kusum" data-price="14000">Kusum House — ৳ 14,000 / Night</option>
+                    <option value="madhavilata" data-price="18500">Madhavilata Suite — ৳ 18,500 / Night</option>
+                  </select>
+                  <div class="custom-select" data-target="villaSelect">
+                    <div class="custom-select-trigger">
+                      <span class="custom-select-value">Akash House — ৳ 12,500 / Night</span>
+                      <i class="fa-solid fa-chevron-down custom-select-arrow"></i>
+                    </div>
+                    <div class="custom-select-options">
+                      <div class="custom-select-option active" data-value="akash">
+                        <span class="option-name">Akash House</span>
+                        <span class="option-price">৳ 12,500 / Night</span>
+                      </div>
+                      <div class="custom-select-option" data-value="kusum">
+                        <span class="option-name">Kusum House</span>
+                        <span class="option-price">৳ 14,000 / Night</span>
+                      </div>
+                      <div class="custom-select-option" data-value="madhavilata">
+                        <span class="option-name">Madhavilata Suite</span>
+                        <span class="option-price">৳ 18,500 / Night</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group">
+                  <label for="guestCount">Guests</label>
+                  <select id="guestCount" class="form-control sr-only" required>
+                    <option value="1">1 Guest</option>
+                    <option value="2">2 Guests</option>
+                    <option value="3" selected>3 Guests</option>
+                    <option value="4">4 Guests</option>
+                    <option value="5">5 Guests</option>
+                    <option value="6">6 Guests</option>
+                  </select>
+                  <div class="custom-select" data-target="guestCount">
+                    <div class="custom-select-trigger">
+                      <span class="custom-select-value">3 Guests</span>
+                      <i class="fa-solid fa-chevron-down custom-select-arrow"></i>
+                    </div>
+                    <div class="custom-select-options">
+                      <div class="custom-select-option" data-value="1">1 Guest</div>
+                      <div class="custom-select-option" data-value="2">2 Guests</div>
+                      <div class="custom-select-option active" data-value="3">3 Guests</div>
+                      <div class="custom-select-option" data-value="4">4 Guests</div>
+                      <div class="custom-select-option" data-value="5">5 Guests</div>
+                      <div class="custom-select-option" data-value="6">6 Guests</div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="form-group form-group-full">
+                  <label for="userName">Full Name</label>
+                  <input type="text" id="userName" class="form-control" placeholder="Amjad Hossain" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="userEmail">Email Address</label>
+                  <input type="email" id="userEmail" class="form-control" placeholder="amjad@domain.com" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="userPhone">Phone Number</label>
+                  <input type="tel" id="userPhone" class="form-control" placeholder="017XXXXXXXX" required>
+                </div>
+                
+              </div>
+              
+              <button type="submit" class="btn btn-gold" style="width: 100%;" id="submitBookingBtn">
+                Request Stay Confirmation
+              </button>
+            </form>
+          </div>
+          
+          <!-- Live Booking Summary & Receipt -->
+          <div class="booking-summary-card">
+            <div class="summary-header">
+              <h4>Stay Summary</h4>
+              <p>Review rates, taxes, and dynamic estimates below</p>
+            </div>
+            
+            <div class="summary-receipt">
+              <div class="receipt-item">
+                <span>Villa Selection</span>
+                <span id="receiptVillaName">Akash House</span>
+              </div>
+              
+              <div class="receipt-item">
+                <span>Rate Per Night</span>
+                <span id="receiptVillaRate">৳ 12,500</span>
+              </div>
+              
+              <div class="receipt-item">
+                <span>Duration</span>
+                <span id="receiptNights">1 Night</span>
+              </div>
+              
+              <div class="receipt-item">
+                <span>Guests Capacity</span>
+                <span id="receiptGuests">3 Guests</span>
+              </div>
+              
+              <div class="receipt-item">
+                <span>Service Charge & VAT (15%)</span>
+                <span id="receiptTax">৳ 1,875</span>
+              </div>
+              
+              <div class="receipt-item total">
+                <span>Total Amount</span>
+                <span id="receiptTotal">৳ 14,375</span>
+              </div>
+            </div>
+            
+            <div class="summary-footer">
+              <p><i class="fa-solid fa-circle-info" style="color: var(--color-gold); margin-right: 0.3rem;"></i> Payment is processed upon reservation confirmation call</p>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section class="section loc-section" id="locationSection">
+      <div class="container">
+        
+        <div class="section-header reveal">
+          <span class="section-tag">Find Us</span>
+          <h2 class="section-title">Your Journey Begins Here</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <!-- Travel Info Cards -->
+        <div class="loc-travel-cards reveal">
+          <div class="loc-travel-card">
+            <div class="loc-travel-icon">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <h4>From Chattogram</h4>
+            <p>~2.5 hours drive via Dhaka-Chittagong Highway</p>
+          </div>
+          <div class="loc-travel-card">
+            <div class="loc-travel-icon">
+              <i class="fa-solid fa-plane-departure"></i>
+            </div>
+            <h4>From Dhaka</h4>
+            <p>~4 hours drive or fly to Chattogram + 2hr drive</p>
+          </div>
+          <div class="loc-travel-card">
+            <div class="loc-travel-icon">
+              <i class="fa-solid fa-train"></i>
+            </div>
+            <h4>By Rail</h4>
+            <p>Nearest station: Mirsharai, then 15 min local ride</p>
+          </div>
+        </div>
+        
+        <div class="loc-grid reveal">
+          
+          <div class="loc-details">
+            <div class="loc-info-block">
+              <h3>Our Sanctuary Location</h3>
+              <p>
+                South Sonapahar Station Road, Mostannagar, Zorarganj, Mirsharai, Chattogram, Bangladesh.
+              </p>
+            </div>
+            
+            <ul class="loc-contact-list">
+              <li class="loc-contact-item">
+                <div class="loc-contact-icon-wrap">
+                  <i class="fa-solid fa-phone loc-contact-icon"></i>
+                </div>
+                <div>
+                  <span class="loc-contact-label">Reservations Desk</span>
+                  <a href="tel:+8801728070236" class="loc-contact-value">01728-070236</a>
+                </div>
+              </li>
+              <li class="loc-contact-item">
+                <div class="loc-contact-icon-wrap">
+                  <i class="fa-solid fa-envelope loc-contact-icon"></i>
+                </div>
+                <div>
+                  <span class="loc-contact-label">General Enquiries</span>
+                  <a href="mailto:contact@sonapahar.com" class="loc-contact-value">contact@sonapahar.com</a>
+                </div>
+              </li>
+              <li class="loc-contact-item">
+                <div class="loc-contact-icon-wrap">
+                  <i class="fa-solid fa-building loc-contact-icon"></i>
+                </div>
+                <div>
+                  <span class="loc-contact-label">Corporate Headquarters</span>
+                  <span class="loc-contact-value">Avenue 11, House 1356 (5th Floor), Mirpur DOHS, Dhaka 1216</span>
+                </div>
+              </li>
+            </ul>
+
+            <a href="https://www.google.com/maps/dir//Sonapahar+Farmhouse,+South+Sonapahar+Station+Road,+Mirsharai" target="_blank" rel="noopener" class="btn btn-gold loc-direction-btn">
+              <i class="fa-solid fa-diamond-turn-right" style="margin-right: 0.5rem;"></i> Get Directions
+            </a>
+          </div>
+          
+          <div class="loc-map-container">
+            <!-- Embedded Google Map - Place mode guarantees red pin marker -->
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.0!2d91.54341991823797!3d22.99042533816654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3753434693a207cb%3A0xc3f6ec6d1f053531!2sSonapahar%20Farmhouse!5e0!3m2!1sen!2sbd!4v1718080000000!5m2!1sen!2sbd"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade"
+              aria-label="Google Map pinpointing Sonapahar Farmhouse Resort">
+            </iframe>
+            <div class="loc-map-pin-label">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Sonapahar Farmhouse Resort</span>
+            </div>
+          </div>
+          
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer Section -->
+  <!-- Footer Section -->
+  <footer class="footer-kosbiotic">
+    <div class="footer-kosbiotic-container">
+      
+      <!-- Massive Brand Name -->
+      <div class="footer-brand-header">
+        <h1>Sonapahar</h1>
+      </div>
+
+      <!-- Main Split Grid -->
+      <div class="footer-main-grid">
+        
+        <!-- Left: Newsletter & Social -->
+        <div class="footer-left-col">
+          <div class="newsletter-section">
+            <h4 class="footer-col-title">Newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" placeholder="monemail@mail.com" required>
+              <button type="submit" aria-label="Subscribe">
+                <i class="fa-solid fa-arrow-right-long"></i>
+              </button>
+            </form>
+            <span class="newsletter-disclaimer">I ACCEPT THE CONDITIONS</span>
+          </div>
+          
+          <div class="footer-socials">
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Right: Links Columns -->
+        <div class="footer-right-cols">
+          
+          <div class="footer-link-col">
+            <h4 class="footer-col-title">Explore</h4>
+            <a href="#storySection">The Sanctuary</a>
+            <a href="#villasSection">Villas & Cottages</a>
+            <a href="#experienceSection">Guest Experience</a>
+            <a href="#bookingSection">Reserve Stay</a>
+          </div>
+          
+          <div class="footer-link-col">
+            <h4 class="footer-col-title">Villas</h4>
+            <a href="#villasSection">Akash House</a>
+            <a href="#villasSection">Kusum House</a>
+            <a href="#villasSection">Madhavilata Suite</a>
+          </div>
+          
+          <div class="footer-link-col">
+            <h4 class="footer-col-title">Dhaka Office</h4>
+            <span>Avenue 11, House 1356 (5th Floor)</span>
+            <span>Mirpur DOHS, Dhaka 1216</span>
+          </div>
+
+          <div class="footer-link-col">
+            <h4 class="footer-col-title">Assistance</h4>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+            <span>01728-070236</span>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div class="footer-bottom-kosbiotic">
+        <p>COPYRIGHT SONAPAHAR 2026</p>
+      </div>
+      
+      <!-- Floating Chat Button -->
+      <button class="footer-chat-btn" aria-label="Chat">
+        <i class="fa-regular fa-comment"></i>
+      </button>
+
+    </div>
+  </footer>
+
+  <!-- Immersive Lightbox Modal -->
+  <div class="lightbox" id="lightboxModal" role="dialog" aria-modal="true" aria-label="Detailed View">
+    <button class="lightbox-close" id="lightboxCloseBtn" aria-label="Close detailed view">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrevBtn" aria-label="Previous image">
+      <i class="fa-solid fa-chevron-left"></i>
+    </button>
+    
+    <button class="lightbox-nav lightbox-next" id="lightboxNextBtn" aria-label="Next image">
+      <i class="fa-solid fa-chevron-right"></i>
+    </button>
+    
+    <div class="lightbox-container">
+      <div class="lightbox-media-wrapper">
+        <img src="" id="lightboxImg" alt="Detailed view image">
+      </div>
+      
+      <div class="lightbox-info">
+        <span class="lightbox-category" id="lightboxCategory">Category</span>
+        <h3 class="lightbox-title" id="lightboxTitle">Title</h3>
+        <p class="lightbox-desc" id="lightboxDesc">Description text goes here...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="script.js?v=1.4"></script>
+</body>
+</html>
+
